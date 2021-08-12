@@ -24,24 +24,24 @@ const student = async function (req, res) {
         day: "numeric",
       });
       for (let j = 1; j <= 3; j++) {
-        let data1;
         data = {
           selectedDate: nextWeekDate,
           slot: slots[j],
           status: "Available",
           aluminiStatus: "Pending",
         };
-
-        if(getExistSlots && getExistSlots.length){
-        data1 = getExistSlots.map((obj) =>
-          obj.selectedDate == data.selectedDate && obj.slot == data.slot ? obj : data
-        );
-        }else{
-            data1 = [data]
-        }
-        oneWeekData.push(...data1);
+        oneWeekData.push(data);
       }
     }
+
+    for (e of getExistSlots) {
+        oneWeekData.find((x) => {
+          if (x.selectedDate == e.selectedDate && x.slot == e.slot) {
+            x.status = e.status;
+            x.aluminiStatus = e.aluminiStatus
+          }
+        });
+      }
 
     for (e of otherUserSlot) {
       oneWeekData.find((x) => {

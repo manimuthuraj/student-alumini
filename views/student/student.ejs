@@ -5,7 +5,7 @@
     <div class="container row">
         <div class="active">
             <table class="table table-bordered ">
-                <p>SCROLL BOTTOM TO SEE YOUR SLOTS</p>
+                <p>SCROLL BOTTOM TO SEE SLOTS CREATED BY YOU</p>
                 <h3 class="name">SLOTS</h3>
                 <%if(slotBookingCondition && slotBookingCondition.pendingSlot > 0){%>
                     <p>ALUMINI NEED TO APPROVE OR REJECT PENDING SLOT THEN ONLY STUDENT CAN BOOK SLOT</p>
@@ -69,7 +69,7 @@
 
         <div class="active">
             <table class="table table-bordered ">
-                <h3 class="name">Created Slots</h3>
+                <h3 class="name">Created Slots By You</h3>
                 <thead>
                     <tr>
                         <th>Date</th>
@@ -93,8 +93,8 @@
                 </tbody>
                 <%})%>
             </table>
-            <%if(Object.keys(student).length === 0){%>
-                <h3 id="no"> NO DATA FOUND  </h3>
+            <%if(Object.keys(createdSlot).length === 0){%>
+                <h3 id="no"> NO SLOTS CREATED YET  </h3>
                 <%}%>
                     <%- include("../partials/footer") %>
         </div>

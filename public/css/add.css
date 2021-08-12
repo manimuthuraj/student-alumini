@@ -1,0 +1,14 @@
+.btn {
+    border-radius: 0;
+    background-color: rgb(5, 2, 54);
+}
+
+.add {
+    margin: 4%;
+    margin-left: 15%
+}
+
+#name {
+    margin-left: 13%;
+    color: rgb(6, 2, 73);
+}

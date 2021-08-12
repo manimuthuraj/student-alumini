@@ -1,0 +1,102 @@
+<%- include("../partials/header") %>
+    <link rel="stylesheet" href="/css/student.css" type="text/css">
+
+    <h2 id="personal"> Student-Alumni</h2>
+    <div class="container row">
+        <div class="active">
+            <table class="table table-bordered ">
+                <p>SCROLL BOTTOM TO SEE YOUR SLOTS</p>
+                <h3 class="name">SLOTS</h3>
+                <%if(slotBookingCondition && slotBookingCondition.pendingSlot > 0){%>
+                    <p>ALUMINI NEED TO APPROVE OR REJECT PENDING SLOT THEN ONLY STUDENT CAN BOOK SLOT</p>
+                    <%}%>
+
+                    <%if(slotBookingCondition && slotBookingCondition.bookedSlot >= 2){%>
+                        <p>The maximum number of slots a student can book is 2.</p>
+                        <%}%>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Slot</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%student.forEach(function(x){%>
+                        <tr>
+                            <td>
+                                <%=x.selectedDate%>
+                            </td>
+                            <td>
+                                <%=x.slot%>
+                            </td>
+                            <td>
+                                <%=x.status%>
+                                <%if(x.status == 'Booked' || x.status == 'Pending' || x.status == 'Not Available' || x.status == 'rejected'){%>
+                                <%} else {%>
+                                    <form action="/createSlot" method="POST" id="myform">
+                                        <div class=" form-group ">
+                                            <input type="hidden" class="form-control " name="selectedDate" value= <%=x.selectedDate%> >
+                                        </div>
+                        
+                                        <div class=" form-group ">
+                                            <input type="hidden" class="form-control "  name="slot" value= <%=x.slot%> >
+                                        </div>
+
+                                        <div class=" form-group ">
+                                            <input type="hidden" class="form-control "  name="pendingSlot" value= <%=slotBookingCondition.pendingSlot%> >
+                                        </div>
+
+                                        <div class=" form-group ">
+                                            <input type="hidden" class="form-control "  name="bookedSlot" value= <%=slotBookingCondition.bookedSlot%> >
+                                        </div>
+
+                                        <div>
+                                            <button type="submit" id="submit" class="btn btn-primary ">Book</button>
+                                        </div>
+                                    </form>
+                                <%}%>
+                            </td>
+                        </tr>
+                </tbody>
+                <%})%>
+            </table>
+            <%if(Object.keys(student).length === 0){%>
+                <h3 id="no"> NO DATA FOUND </h3>
+                <%}%>
+                    <%- include("../partials/footer") %>
+        </div>
+
+        <div class="active">
+            <table class="table table-bordered ">
+                <h3 class="name">Created Slots</h3>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Slot</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%createdSlot.forEach(function(x){%>
+                        <tr>
+                            <td>
+                                <%=x.selectedDate%>
+                            </td>
+                            <td>
+                                <%=x.slot%>
+                            </td>
+                            <td>
+                                <%=x.status%>
+                            </td>
+                        </tr>
+                </tbody>
+                <%})%>
+            </table>
+            <%if(Object.keys(student).length === 0){%>
+                <h3 id="no"> NO DATA FOUND  </h3>
+                <%}%>
+                    <%- include("../partials/footer") %>
+        </div>
+        
+    </div>

@@ -1,0 +1,50 @@
+<%- include("../partials/header") %>
+    <link rel="stylesheet" href="/css/student.css" type="text/css">
+
+    <h2 id="personal">Student-Alumni</h2>
+    <div class="container row">
+        <div class="active">
+            <table class="table table-bordered ">
+                <h3 class="name">Student Slots</h3>
+                <thead>
+                    <tr>
+                        <th>studentName</th>
+                        <th>Date</th>
+                        <th>Slot</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%student.forEach(function(x){%>
+                        <tr>
+                            <td>
+                                <%=x.userDetails[0].username%>
+                            </td>
+                            <td>
+                                <%=x.selectedDate%>
+                            </td>
+                            <td>
+                                <%=x.slot%>
+                            </td>
+                            <td>
+                                <%=x.aluminiStatus%>
+                                <%if(x.aluminiStatus =='Pending'){%>
+                                    <form id="delete" action="/slot/approve/<%=x._id%>?_method=PUT" method="post">
+                                        <button class="btn btn-primary btn-xs">Approve</button>
+                                    </form>
+                                    <form id="delete" action="/slot/reject/<%=x._id%>?_method=PUT" method="post">
+                                        <button class="btn btn-primary btn-xs">Reject</button>
+                                    </form>
+                                    <%} else {%>
+                                    <%}%>
+                            </td>
+                        </tr>
+                </tbody>
+                <%})%>
+            </table>
+            <%if(Object.keys(student).length === 0){%>
+                <h3 id="no"> NO STUDENTS BOOKED SLOT YET </h3>
+                <%}%>
+                    <%- include("../partials/footer") %>
+        </div>
+    </div>

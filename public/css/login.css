@@ -1,0 +1,16 @@
+#form {
+    margin: 5%;
+    margin-left: 15%;
+}
+
+#heading {
+    background: -webkit-linear-gradient(rgb(233, 23, 23), rgb(18, 16, 160));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 40%;
+}
+
+.btn {
+    border-radius: 0;
+    background-color: rgb(5, 2, 54);
+}

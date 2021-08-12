@@ -1,0 +1,46 @@
+.active {
+    margin: 2%;
+    margin-left: 5%;
+}
+
+#no {
+    color: rgb(5, 2, 54);
+    margin-left: 5%;
+}
+
+.name {
+    margin-left: 30%;
+    font-weight: bold;
+    color: rgb(117, 117, 122)
+}
+
+.btn {
+    border-radius: 0;
+    background-color: rgb(5, 2, 54);
+}
+
+#team {
+    margin-left: 10%;
+    width: 50%;
+}
+
+#expried {
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+#personal {
+    margin-left: 20%;
+    background: -webkit-linear-gradient(rgb(233, 23, 23), rgb(18, 16, 160));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+.table {
+    border-radius: 10px;
+    box-shadow: 0rem 0 2rem rgb(175, 173, 173);
+}
+
+table:hover {
+    transform: translateY(-1rem);
+}

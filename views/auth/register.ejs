@@ -1,0 +1,27 @@
+<%- include("../partials/header") %>
+    <link rel="stylesheet" href="/css/login.css" type="text/css">
+    <div class="container row">
+        <h1 id="heading">Student-Alumni</h1>
+        <div class="add col-md-6" id="form">
+            <div>
+                <h2> Register</h2>
+            </div>
+            <form action="/register" method="POST" id="myform">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" required class="form-control" id="name" name="username" placeholder="Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">password</label>
+                    <input type="password" required class="form-control" id="password" name="password" placeholder="password">
+                </div>
+
+                <div>
+                    <button id="submit" type="submit" class="btn btn-primary ">SignUp</button>
+                </div>
+                <p id="required"></p>
+            </form>
+        </div>
+    </div>
+    <%- include("../partials/footer") %>
